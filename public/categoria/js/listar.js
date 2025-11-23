@@ -1,10 +1,26 @@
 // const elemento = document.getElementById('titulo');
 // elemento.innerHTML = "Listado de Categorías";
-console.log("xd");
 
-const respuesta = await fetch("../../server/api/Categoria.php", {
-    method: "GET"
-});
+async function get(api) {
+    const respuesta = await fetch(api, {
+        method: "GET"
+    });
+    
+    const data = await respuesta.json();
+    return data;
+}
+//ruta de categorias
+const api = "../../server/api/Categoria.php"
 
-const data = await respuesta.json();
-console.log(data);
+const categorias = await get(api)
+
+
+const tabla = document.getElementById("lista-categorias");
+
+tabla.innerHTML += `
+    <tr>
+        <td>${categorias[0].ID}</td>
+        <td>${categorias[0].nombre}</td>
+        <td></td>
+    </tr>
+`;
