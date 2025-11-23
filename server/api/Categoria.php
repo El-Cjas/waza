@@ -8,7 +8,8 @@ $categoria = new Categoria();
 
 switch ($metodo) {
     case 'GET':
-        $categoria->leer();
+        $xd = $categoria->leer();
+        echo json_encode($xd);
         break;
     
     case 'POST':
@@ -33,6 +34,7 @@ switch ($metodo) {
         echo json_encode(["mensaje" => "Método no permitido"],);
         break;
 }
+
 
 
 ?>
