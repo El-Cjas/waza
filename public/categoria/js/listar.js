@@ -9,18 +9,30 @@ async function get(api) {
     const data = await respuesta.json();
     return data;
 }
+
+function insertarFilaCategoria(idTabla, categorias) {
+    const tabla = document.getElementById(idTabla);
+    
+    categorias.forEach(categoria => {
+        tabla.innerHTML += `
+            <tr>
+                <td>${categoria.ID}</td>
+                <td>${categoria.nombre}</td>
+                <td>${categoria.descripcion}</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
+            </tr>
+        `;
+    });
+
+}
+
 //ruta de categorias
-const api = "../../server/api/Categoria.php"
+const api = "../../server/api/Categoria.php";
 
-const categorias = await get(api)
+const categorias = await get(api);
 
 
-const tabla = document.getElementById("lista-categorias");
+insertarFilaCategoria("lista-categorias", categorias);
 
-tabla.innerHTML += `
-    <tr>
-        <td>${categorias[0].ID}</td>
-        <td>${categorias[0].nombre}</td>
-        <td></td>
-    </tr>
-`;
+
