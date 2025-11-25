@@ -20,7 +20,7 @@ function insertarFilaCategoria(idTabla, categorias) {
                 <td>${categoria.nombre}</td>
                 <td>${categoria.descripcion}</td>
                 <td>Editar</td>
-                <td>Eliminar</td>
+                <td>Eliminar</td> 
             </tr>
         `;
     });

@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php
+// Incluye el archivo del encabezado
+include '../layout/header.php';
+?>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Listado De Categorias</title>
-</head>
-
-<body>
-    <h2 id="titulo">pucha</h2>
+<h2 id="titulo">Listado de categorias</h2>
     <table border="1" id="lista-categorias">
         <tr>
             <th>ID</th>
@@ -17,9 +12,12 @@
         </tr>
         <!-- Las filas de la tabla se generarán dinámicamente aquí -->
     </table>
-</body>
+
 
 
 <script type="module" src="js/listar.js"></script>
 
-</html>
+<?php
+// Incluye el archivo del pie de página
+include '../layout/footer.php';
+?>
