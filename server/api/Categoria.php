@@ -4,6 +4,11 @@ header("Content-Type: application/json");
 
 $metodo = $_SERVER['REQUEST_METHOD'];
 
+$datos_json = file_get_contents('php://input',);
+
+$datos = json_decode($datos_json, true);
+//print_r($datos_json);
+
 $categoria = new Categoria();
 
 switch ($metodo) {
@@ -13,15 +18,17 @@ switch ($metodo) {
         break;
     
     case 'POST':
-        $categoria->setNombre($_POST['nombre']);
-        $categoria->setDescripcion($_POST['descripcion']);
-        $categoria->crear();
+        
+        print_r($datos);
+        $categoria->setNombre($datos['nombre']);
+        $categoria->setDescripcion($datos['descripcion']);
+        echo $categoria->crear();
         break;
 
     case 'PUT':
-        $categoria->setId($_GET['id']);
-        $categoria->setNombre($_GET['nombre']);
-        $categoria->setDescripcion($_GET['descripcion']);
+        $categoria->setId($datos['id']);
+        $categoria->setNombre($datos['nombre']);
+        $categoria->setDescripcion($datos['descripcion']);
         $categoria->actualizar();
         break;
     

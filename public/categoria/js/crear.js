@@ -1,24 +1,24 @@
-function post(params) {
-    fetch("", {
+function post(datos, url) {
+    fetch(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify()
+        body: JSON.stringify(datos)
     })
     
 }
-
+api = "../../server/api/Categoria.php";
 
 document.getElementById("categoria").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const melo = {
+    const categoria = {
         nombre: document.getElementById("nombre").value,
         descripcion: document.getElementById("descripcion").value
     }
 
-    const lista =  [];
+    post(categoria, api)
     
 
 })

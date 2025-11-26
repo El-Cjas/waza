@@ -5,7 +5,7 @@ const dato = {
         console.log(this.descripcion + " soy " + this.nombre);
     }   
 }
-dato.
+
 dato.nombre = null;
 dato.nombre = "pepe"
 delete dato.nombre
