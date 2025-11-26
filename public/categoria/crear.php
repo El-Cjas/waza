@@ -3,15 +3,18 @@
 include '../layout/header.php';
 ?>
 
-<form >
-    <label for="Nombre"></label>
-    <input type="text" name="Nombre" id="Nombre">
+<form id="categoria" name="categoria">
+
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" id="nombre">
     
-    <label for="descripcion"></label>
+    <label for="descripcion">Descripcion</label>
     <input type="text" name="descripcion" id="descripcion">
-    <input type="button" value="">
+    <input type="submit" value="enviar"></input>
+    
 </form>
 
+<script src="js/crear.js"></script>   
 <?php
 // Incluye el archivo del pie de página
 include '../layout/footer.php';
