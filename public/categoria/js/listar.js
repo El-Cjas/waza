@@ -1,13 +1,20 @@
 // const elemento = document.getElementById('titulo');
 // elemento.innerHTML = "Listado de Categorías";
 
-async function get(api) {
+async function get(apiUrl) {
     const respuesta = await fetch(api, {
-        method: "GET"
+        method: "GET",
     });
     
     const data = await respuesta.json();
     return data;
+}
+
+async function delet(apiUrl) {
+    const respuesta = await fetch(api, {
+        method: "DELETE",
+        body: JSON.stringify(datos)
+    });
 }
 
 function insertarFilaCategoria(idTabla, categorias) {
@@ -19,8 +26,8 @@ function insertarFilaCategoria(idTabla, categorias) {
                 <td>${categoria.ID}</td>
                 <td>${categoria.nombre}</td>
                 <td>${categoria.descripcion}</td>
-                <td>Editar</td>
-                <td>Eliminar</td> 
+                <td><button>Editar</button> </td>
+                <td><button>Eliminar</button></td> 
             </tr>
         `;
     });

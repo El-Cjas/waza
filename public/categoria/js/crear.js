@@ -6,7 +6,7 @@ function post(datos, url) {
         },
         body: JSON.stringify(datos)
     })
-    
+
 }
 api = "../../server/api/Categoria.php";
 
@@ -17,7 +17,7 @@ document.getElementById("categoria").addEventListener("submit", function(e) {
         nombre: document.getElementById("nombre").value,
         descripcion: document.getElementById("descripcion").value
     }
-
+    
     post(categoria, api)
     
 

@@ -13,12 +13,18 @@ $categoria = new Categoria();
 
 switch ($metodo) {
     case 'GET':
-        $xd = $categoria->leer();
-        echo json_encode($xd);
+        if (isset($_GET['id'])) {
+            $categoria->setId($_GET['id']);
+            $resultado = $categoria->leer1();
+            echo json_encode($resultado);
+        }
+        else {
+            $resultado = $categoria->leer();
+            echo json_encode($resultado);
+        }
         break;
     
     case 'POST':
-        
         print_r($datos);
         $categoria->setNombre($datos['nombre']);
         $categoria->setDescripcion($datos['descripcion']);
